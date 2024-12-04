@@ -29,6 +29,7 @@ public class Clase04 {
 		//variable local dentro del main
 		int radio = 3;
 		System.out.println("el area del circulo con radio de " + radio + " cm es de: " + calcularArea(radio) + " cm");
+		
 	}
 	
 	private static void imprimirListaNombres(String[] nombrePersonas) {
