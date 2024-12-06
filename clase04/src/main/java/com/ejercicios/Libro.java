@@ -4,8 +4,9 @@ package com.ejercicios;
 public class Libro {
 
 	private String titulo;
-	private String autor;
 	
+	//Crea una clase Libro donde el atributo autor sea private y define un método para cambiarlo.
+	private String autor;	
 	
 	public String getTitulo() {
 		return this.titulo;
@@ -25,6 +26,10 @@ public class Libro {
 		System.out.println("Titulo: " + titulo);
 		System.out.println("Autor: " + autor);
 	}
+	
+	public void cambiarAutor(String nuevoAutor) {
+		autor = nuevoAutor;
+	}
 
 	public static void main(String[] args) {
 		Libro nuevoLibro = new Libro();
@@ -32,6 +37,8 @@ public class Libro {
 		nuevoLibro.setAutor("Paulo Coelho");
 		
 		nuevoLibro.informacion();
+		nuevoLibro.cambiarAutor("Julio Verne");
+		System.out.println("Nuevo autor: " + nuevoLibro.getAutor());	
 	}
 
 }

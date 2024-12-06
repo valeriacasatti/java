@@ -3,7 +3,9 @@ package com.ejercicios;
 //Crea una clase Vehiculo con atributos velocidad y combustible, y un método que disminuya el combustible.
 public class Vehiculo {
 
-	private double velocidad;
+	////Define un atributo protegido velocidad en una clase Vehiculo y accede a él desde otro método de la misma clase.
+	protected double velocidad;
+	
 	private double combustible;
 	//Crea una clase Vehiculo con atributos marca y modelo, y métodos para acelerar y frenar.
 	private String marca;
@@ -59,14 +61,28 @@ public class Vehiculo {
 		System.out.println("Detencion exitosa");
 	}
 	
+	//Crea una clase Vehiculo con una constante MAX_VELOCIDAD y un método para verificar si un vehículo supera el límite.
+		private final double MAX_VELOCIDAD = 230;
+		
+		public void limiteVelocidad() {
+			System.out.println(velocidad);
+
+			if( velocidad > MAX_VELOCIDAD) {
+				System.out.println("El vehiculo supera la velocidad maxima de " + MAX_VELOCIDAD);
+			} else {
+				System.out.println("El vehiculo se encuentra dentro del rango de velocidad permitida");
+			}
+		}
+	
 	public static void main(String[] args) {
 
 		Vehiculo vehiculo = new Vehiculo();
-		vehiculo.setVelocidad(55);
+		vehiculo.setVelocidad(550);
 		vehiculo.setCombustible(20);
 		
 		vehiculo.disminuirCombustible();
 		vehiculo.acelerar();
+		vehiculo.limiteVelocidad();
 		vehiculo.frenar();
 	}
 
