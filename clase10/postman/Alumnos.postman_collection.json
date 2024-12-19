@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "bd9d90b0-08c9-4cf6-abb9-152624edbf37",
+		"name": "Alumnos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40551809"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/alumnos/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/alumnos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"alumnos",
+						""
+					]
+				},
+				"description": "Listar todos los alumnos"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/alumnos/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/alumnos/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"alumnos",
+						"5"
+					]
+				},
+				"description": "Listar un alumno por ID"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/alumnos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Valentina\",\r\n    \"apellido\": \"Reynoso\",\r\n    \"dni\": 40596620,\r\n    \"legajo\": \"L555\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/alumnos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"alumnos"
+					]
+				},
+				"description": "Crear un alumno"
+			},
+			"response": []
+		}
+	]
+}
