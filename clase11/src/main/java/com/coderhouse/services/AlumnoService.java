@@ -5,8 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.coderhouse.dtos.InscripcionDto;
 import com.coderhouse.models.Alumno;
+import com.coderhouse.models.Curso;
 import com.coderhouse.repositories.AlumnoRepository;
+import com.coderhouse.repositories.CursoRepository;
 
 import jakarta.transaction.Transactional;
 
@@ -15,6 +18,9 @@ public class AlumnoService {
 
 	@Autowired
 	private AlumnoRepository alumnoRepository;
+	
+	@Autowired
+	private CursoRepository cursoRepository;
 	
 	public List<Alumno> getAllAlumnos() {
 		return alumnoRepository.findAll();
@@ -50,4 +56,23 @@ public class AlumnoService {
 		alumnoRepository.deleteById(id);
 
 	}
+	
+	@Transactional
+	public Alumno incribirAlumnoACursos(InscripcionDto dto) {
+		Alumno alumno = alumnoRepository.findById(dto.getAlumnoId()).orElseThrow(()-> new IllegalArgumentException("Alumno no encontrado"));
+		for(Long cursoId : dto.getCursoIds()) {
+			Curso curso = cursoRepository.findById(cursoId).orElseThrow(()-> new IllegalArgumentException("Curso no encontrado"));
+			alumno.getCursos().add(curso);
+			curso.getAlumnos().add(alumno);
+			cursoRepository.save(curso);
+		}
+		return alumnoRepository.save(alumno);
+	}
+	
+	
+	
+	
+	
+	
+	
 }

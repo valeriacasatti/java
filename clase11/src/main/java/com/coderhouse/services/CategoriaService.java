@@ -28,4 +28,18 @@ public class CategoriaService {
 	public Categoria saveCategoria(Categoria categoria) {
 		return categoriaRepository.save(categoria);
 	}
+	
+	@Transactional
+	public Categoria updateCategoriaById(Long id, Categoria categoriaInfo) {
+		Categoria categoria = categoriaRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("Categoria no encontrada"));
+		categoria.setNombre(categoriaInfo.getNombre());
+		return categoriaRepository.save(categoria);
+	}
+	
+	public void deleteCategoriaById(Long id) {
+		if(!categoriaRepository.existsById(id)) {
+			throw new IllegalArgumentException("Categoria no encontrada");
+		}
+		categoriaRepository.deleteById(id);
+	}
 }

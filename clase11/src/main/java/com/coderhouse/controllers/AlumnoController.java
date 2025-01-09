@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.coderhouse.dtos.InscripcionDto;
 import com.coderhouse.models.Alumno;
 import com.coderhouse.services.AlumnoService;
 
@@ -78,6 +79,17 @@ public class AlumnoController {
 			return ResponseEntity.notFound().build(); 
 		}catch(Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build(); 
+		}
+	}
+	
+	@PostMapping("/inscribir")
+	public ResponseEntity<Alumno> incribirAlumnoACursos(@RequestBody InscripcionDto dto){
+		try {
+			Alumno alumno = alumnoService.incribirAlumnoACursos(dto);
+			return ResponseEntity.ok(alumno);
+		}catch(Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build(); 
+
 		}
 	}
 }

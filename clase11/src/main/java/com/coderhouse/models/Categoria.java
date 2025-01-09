@@ -13,6 +13,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 
 @Entity
 @Table(name="categorias")
@@ -29,41 +40,4 @@ public class Categoria {
 	@JsonIgnore
 	private List<Curso> cursos = new ArrayList<>();
 	
-	public Categoria() {
-		super();
-	}
-
-	public Categoria(String nombre) {
-		super();
-		this.nombre = nombre;
-	}
-
-	@Override
-	public String toString() {
-		return "Categoria [id=" + id + ", nombre=" + nombre + "]";
-	}
-
-	public Long getId() {
-		return this.id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNombre() {
-		return this.nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public List<Curso> getCursos() {
-		return this.cursos;
-	}
-
-	public void setCursos(List<Curso> cursos) {
-		this.cursos = cursos;
-	}
 }

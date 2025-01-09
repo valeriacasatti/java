@@ -15,6 +15,17 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 
 @Entity
 @Table(name = "cursos")
@@ -48,41 +59,4 @@ public class Curso {
 		this.categoria = categoria;
 	}
 
-	public Long getId() {
-		return this.id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNombre() {
-		return this.nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public List<Alumno> getAlumnos() {
-		return this.alumnos;
-	}
-
-	public void setAlumnos(List<Alumno> alumnos) {
-		this.alumnos = alumnos;
-	}
-
-	@Override
-	public String toString() {
-		return "Curso [id=" + id + ", nombre=" + nombre + "]";
-	}
-
-	public Curso() {
-		super();
-	}
-	
-	public Curso(String nombre) {
-		this();
-		this.nombre = nombre;
-	}
 }
